@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node install.js",
     "live": "nodemon index.js"
   },
   "author": "a_nu team",
