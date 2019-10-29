@@ -6,4 +6,4 @@ const port = process.env.PORT || 3000
 
 require('./routes/index')(express, app)
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`App listening on port ${port}!`))
