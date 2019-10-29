@@ -2,7 +2,7 @@
   "name": "event-app-server",
   "version": "1.0.0",
   "description": "Avangard 2019 Programming Case",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "live": "nodemon index.js"
