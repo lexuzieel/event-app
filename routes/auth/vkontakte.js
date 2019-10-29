@@ -1,8 +1,6 @@
-
-const passport = require('passport')
 const VKontakteStrategy = require('passport-vkontakte').Strategy
 
-module.exports = function (express, app) {
+module.exports = function (express, app, passport) {
     passport.use(new VKontakteStrategy({
         clientID: process.env.VKONTAKTE_APP_ID,
         clientSecret: process.env.VKONTAKTE_APP_SECRET,
