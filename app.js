@@ -22,6 +22,8 @@ app.use(session({
 
 require('./helpers')(express, app)
 
+require('./auth')(express, app)
+
 require('./routes/index')(express, app)
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
