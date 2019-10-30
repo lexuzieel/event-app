@@ -1,7 +1,7 @@
 module.exports = function (express, app) {
     /**
      * Get app URL based on config hostname and port.
-     * 
+     *
      * @returns string
      */
     app.url = (path = '') => {

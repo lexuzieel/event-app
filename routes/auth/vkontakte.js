@@ -15,7 +15,7 @@ module.exports = function (express, app, passport) {
         router.get('/vkontakte',
             passport.authenticate('vkontakte'),
             function (req, res) {
-                // The request will be redirected to vk.com for 
+                // The request will be redirected to vk.com for
                 // authentication, so this function will not be called.
             });
 
