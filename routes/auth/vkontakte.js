@@ -1,8 +1,8 @@
-const passport = require('passport')
-const VKontakteStrategy = require('passport-vkontakte').Strategy
+import { use, authenticate } from 'passport'
+import { Strategy as VKontakteStrategy } from 'passport-vkontakte'
 
-module.exports = function (express, app) {
-    passport.use(new VKontakteStrategy({
+export default function (express, app) {
+    use(new VKontakteStrategy({
         clientID: process.env.VKONTAKTE_APP_ID,
         clientSecret: process.env.VKONTAKTE_APP_SECRET,
         callbackURL: app.url('auth/vkontakte/callback')
@@ -16,14 +16,14 @@ module.exports = function (express, app) {
 
     app.prefix('/auth', (router) => {
         router.get('/vkontakte',
-            passport.authenticate('vkontakte'),
+            authenticate('vkontakte'),
             function (req, res) {
                 // The request will be redirected to vk.com for
                 // authentication, so this function will not be called.
             });
 
         router.get('/vkontakte/callback',
-            passport.authenticate('vkontakte'),
+            authenticate('vkontakte'),
             function (req, res) {
                 res.json({
                     message: 'success'

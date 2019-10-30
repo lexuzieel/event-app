@@ -1,5 +1,4 @@
-
-module.exports = function (express, app) {
+export default function (express, app) {
     require('./prefix')(express, app)
 
     require('./auth')(express, app)

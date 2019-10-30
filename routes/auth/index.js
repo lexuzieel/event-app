@@ -1,3 +1,3 @@
-module.exports = function (express, app) {
+export default function (express, app) {
     require('./vkontakte')(express, app)
 }
