@@ -5,6 +5,12 @@ module.exports = function (express, app) {
      * @returns string
      */
     app.url = (path = '') => {
+        let url = process.env.APP_URL
+
+        if (url) {
+            return `${url}/${path}`
+        }
+
         let protocol = process.env.SECURE ? 'https' : 'http'
 
         let host = process.env.HOST || 'localhost'
