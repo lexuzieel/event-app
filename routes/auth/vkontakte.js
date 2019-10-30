@@ -7,7 +7,9 @@ module.exports = function (express, app, passport) {
         callbackURL: app.url('auth/vkontakte/callback')
     },
         function (accessToken, refreshToken, params, profile, done) {
-            console.log(profile)
+            // Put the user in the database here.
+            // Generate JWT.
+            done(null, profile)
         }
     ))
 
@@ -20,10 +22,11 @@ module.exports = function (express, app, passport) {
             });
 
         router.get('/vkontakte/callback',
-            passport.authenticate('vkontakte', { failureRedirect: '/login' }),
+            passport.authenticate('vkontakte'),
             function (req, res) {
-                // Successful authentication, redirect home.
-                res.redirect('/');
+                res.json({
+                    message: 'success'
+                })
             });
     })
 }

@@ -27,6 +27,13 @@
             "methods": [
                 "GET"
             ]
+        },
+        {
+            "src": "/auth/vkontakte(/callback|)",
+            "dest": "/app.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }
