@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "name": "event-app",
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "dist"
+            }
+        },
+        {
+            "src": "app.js",
+            "use": "@now/node-server"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api",
+            "dest": "/app.js",
+            "methods": [
+                "GET"
+            ]
+        }
+    ]
+}

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node install.js",
     "build": "vue-cli-service build",
-    "live": "nodemon index.js"
+    "live": "nodemon --exec now dev"
   },
   "author": "a_nu team",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "passport-vkontakte": "^0.3.2"
   },
   "devDependencies": {
+    "now": "^16.4.4",
     "nodemon": "^1.19.4"
   }
 }
