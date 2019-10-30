@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node install.js",
     "build": "vue-cli-service build",
-    "live-server": "nodemon app.js",
+    "live-server": "nodemon --exec babel-node app.js",
     "live": "nodemon --exec now dev"
   },
   "author": "a_nu team",
@@ -24,7 +24,10 @@
     "passport-vkontakte": "^0.3.2"
   },
   "devDependencies": {
-    "now": "^16.4.4",
-    "nodemon": "^1.19.4"
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "nodemon": "^1.19.4",
+    "now": "^16.4.4"
   }
 }
