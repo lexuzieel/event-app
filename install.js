@@ -1,6 +1,7 @@
 require('dotenv').config()
-const fs = require('fs')
-const crypto = require('crypto')
+
+import fs from 'fs'
+import crypto from 'crypto'
 
 if (!fs.existsSync('.env')) {
     fs.copyFileSync('.env.example', '.env')

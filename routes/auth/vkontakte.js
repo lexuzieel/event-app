@@ -1,5 +1,5 @@
-const passport = require('passport')
-const VKontakteStrategy = require('passport-vkontakte').Strategy
+import passport from 'passport'
+import { Strategy as VKontakteStrategy } from 'passport-vkontakte'
 
 module.exports = function (express, app) {
     passport.use(new VKontakteStrategy({
