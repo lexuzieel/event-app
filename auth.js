@@ -1,10 +1,10 @@
-import { initialize, session, serializeUser, deserializeUser } from 'passport';
+const passport = require('passport')
 
-export default function (express, app) {
-    app.use(initialize());
-    app.use(session());
+module.exports = function (express, app) {
+    app.use(passport.initialize());
+    app.use(passport.session());
 
-    serializeUser(function (user, done) {
+    passport.serializeUser(function (user, done) {
         if (user) {
             done(null, user.id);
         } else {
@@ -12,7 +12,7 @@ export default function (express, app) {
         }
     });
 
-    deserializeUser(function (id, done) {
+    passport.deserializeUser(function (id, done) {
         done(null, {
             id: 'mlem'
         })
