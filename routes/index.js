@@ -1,4 +1,3 @@
-
 module.exports = function (express, app) {
     require('./prefix')(express, app)
 
