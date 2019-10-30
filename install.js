@@ -1,6 +1,10 @@
 const fs = require('fs')
 const crypto = require('crypto')
 
+if (!fs.existsSync('.env')) {
+    fs.copyFileSync('.env.example', '.env')
+}
+
 let key = crypto.createHash('sha256')
     .update(crypto.randomBytes(256))
     .digest("hex")
