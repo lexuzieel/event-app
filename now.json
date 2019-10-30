@@ -2,7 +2,6 @@
     "version": 2,
     "name": "event-app",
     "env": {
-        "APP_URL": "@app_url",
         "VKONTAKTE_APP_ID": "@vkontakte_app_id",
         "VKONTAKTE_APP_SECRET": "@vkontakte_app_secret",
         "KEY": "@key"
