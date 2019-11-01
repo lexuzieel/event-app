@@ -5,6 +5,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node install.js",
+    "make:model": "sequelize model:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --underscored --attributes exampleField:string --name",
+    "make:migration": "sequelize migration:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --name",
+    "make:seed": "sequelize seed:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --name",
+    "migrate": "sequelize db:migrate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models",
+    "migrate:rollback": "sequelize db:migrate:undo --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models",
+    "migrate:status": "sequelize db:migrate:status --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models",
     "build": "vue-cli-service build frontend",
     "live-client": "vue serve frontend",
     "live-server": "nodemon --exec babel-node backend",
@@ -20,8 +26,11 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "lodash": "^4.17.15",
+    "mariadb": "^2.1.2",
     "passport": "^0.4.0",
-    "passport-vkontakte": "^0.3.2"
+    "passport-vkontakte": "^0.3.2",
+    "sequelize": "^5.21.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
