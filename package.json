@@ -1,5 +1,5 @@
 {
-  "name": "event-app-server",
+  "name": "event-app",
   "version": "1.0.0",
   "description": "Avangard 2019 Programming Case",
   "main": "app.js",
