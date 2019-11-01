@@ -16,21 +16,21 @@
             }
         },
         {
-            "src": "app.js",
+            "src": "backend/index.js",
             "use": "@now/node-server"
         }
     ],
     "routes": [
         {
             "src": "/api",
-            "dest": "/app.js",
+            "dest": "/backend/index.js",
             "methods": [
                 "GET"
             ]
         },
         {
             "src": "/auth/vkontakte(/callback|)",
-            "dest": "/app.js",
+            "dest": "/backend/index.js",
             "methods": [
                 "GET"
             ]

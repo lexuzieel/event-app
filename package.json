@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node install.js",
-    "build": "vue-cli-service build",
-    "live-server": "nodemon --exec babel-node app.js",
+    "live-server": "nodemon --exec babel-node backend",
     "live": "nodemon --exec now dev"
   },
   "author": "a_nu team",
