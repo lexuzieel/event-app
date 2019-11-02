@@ -12,7 +12,11 @@ module.exports = function (express, app, router) {
 
         router.get('/:id', function (req, res) {
             User.findByPk(req.params.id).then(user => {
-                res.send(user)
+                if (user) {
+                    res.send(user)
+                } else {
+                    res.status(404).end()
+                }
             })
         })
     })
