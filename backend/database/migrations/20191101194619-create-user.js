@@ -5,6 +5,12 @@ module.exports = {
             id: {
                 allowNull: false,
                 primaryKey: true,
+                autoIncrement: true,
+                type: Sequelize.INTEGER
+            },
+            profile_id: {
+                unique: true,
+                allowNull: false,
                 type: Sequelize.INTEGER
             },
             name: {

@@ -16,18 +16,20 @@ module.exports = function (express, app) {
             // Put the user in the database here.
 
             let data = {
-                id: profile.id,
+                profileId: profile.id,
                 name: profile.displayName,
                 username: profile.username,
-                profile_url: profile.profileUrl,
-                avatar_url: _.get(_.find(
+                profileUrl: profile.profileUrl,
+                avatarUrl: _.get(_.find(
                     profile.photos, {
                     type: 'photo_max_orig'
                 }), 'value'),
             }
 
             User.upsert(data).then(result => {
-                done(null, profile.id)
+                User.findOne({ profile_id: profile.id }).then(user => {
+                    done(null, user)
+                })
             })
         }
     ))
