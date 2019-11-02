@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "node install.js",
-    "make:model": "sequelize model:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --underscored --attributes exampleField:string --name",
+    "make:model": "sequelize model:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --underscored --attributes example_field:string --name",
     "make:migration": "sequelize migration:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --name",
     "make:seed": "sequelize seed:generate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --name",
     "migrate": "sequelize db:migrate --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models",
