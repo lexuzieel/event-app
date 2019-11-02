@@ -1,4 +1,6 @@
-module.exports = function (express, app) {
+const express = require('express')
+
+module.exports = function (app) {
     // https://medium.com/@zahiruldu/nodejs-route-prefixing-in-expressjs-65196adb3167
     app.prefix = express.Router.prefix =
         function (path, configure) {

@@ -1,7 +1,7 @@
 const passport = require('passport')
 const { User } = require('./models')
 
-module.exports = function (express, app) {
+module.exports = function (app) {
     app.use(passport.initialize());
     app.use(passport.session());
 

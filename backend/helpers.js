@@ -1,4 +1,4 @@
-module.exports = function (express, app) {
+module.exports = function (app) {
     /**
      * Get app URL based on config hostname and port.
      *

@@ -1,3 +1,3 @@
-module.exports = function (express, app, router) {
-    require('./users')(express, app, router)
+module.exports = function (app, router) {
+    require('./users')(app, router)
 }

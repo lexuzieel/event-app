@@ -1,6 +1,6 @@
 const { User } = require('../../../models')
 
-module.exports = function (express, app, router) {
+module.exports = function (app, router) {
     router.prefix('/users', (router) => {
         router.get('/me', function (req, res) {
             if (req.user) {

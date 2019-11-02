@@ -30,10 +30,10 @@ app.use(session({
     saveUninitialized: false
 }))
 
-require('./helpers')(express, app)
+require('./helpers')(app)
 
-require('./auth')(express, app)
+require('./auth')(app)
 
-require('./routes')(express, app)
+require('./routes')(app)
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))

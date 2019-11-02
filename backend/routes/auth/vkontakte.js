@@ -3,7 +3,7 @@ const passport = require('passport')
 const { User } = require('../../models')
 const VKontakteStrategy = require('passport-vkontakte').Strategy
 
-module.exports = function (express, app) {
+module.exports = function (app) {
     passport.use(new VKontakteStrategy({
         clientID: process.env.VKONTAKTE_APP_ID,
         clientSecret: process.env.VKONTAKTE_APP_SECRET,
