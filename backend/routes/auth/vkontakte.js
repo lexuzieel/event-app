@@ -26,8 +26,6 @@ module.exports = function (express, app) {
                 }), 'value'),
             }
 
-            console.log(data)
-
             User.upsert(data).then(result => {
                 done(null, profile.id)
             })
