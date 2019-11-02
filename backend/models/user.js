@@ -1,7 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const user = sequelize.define('user', {
-        // exampleField: DataTypes.STRING
+        name: {
+            type: DataTypes.STRING
+        },
+        username: {
+            type: DataTypes.STRING
+        },
+        profileUrl: {
+            type: DataTypes.STRING
+        },
+        avatarUrl: {
+            type: DataTypes.STRING
+        },
     }, {
         underscored: true,
     });
