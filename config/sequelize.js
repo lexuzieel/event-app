@@ -12,6 +12,13 @@ let config = {
     },
 }
 
+switch (config.dialect) {
+    case 'mariadb': {
+        config.dialectModule = require('mariadb')
+        break
+    }
+}
+
 module.exports = {
     test: config,
     production: config,
