@@ -1,4 +1,4 @@
-const { User } = require('../../../models')
+// const { User } = require('../../../models')
 
 module.exports = function (express, app, router) {
     router.prefix('/users', (router) => {
@@ -10,10 +10,10 @@ module.exports = function (express, app, router) {
             }
         })
 
-        router.get('/:id', function (req, res) {
-            User.findByPk(req.params.id).then(user => {
-                res.send(user)
-            })
-        })
+        // router.get('/:id', function (req, res) {
+        //     User.findByPk(req.params.id).then(user => {
+        //         res.send(user)
+        //     })
+        // })
     })
 }
