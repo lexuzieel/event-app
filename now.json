@@ -26,7 +26,8 @@
             "use": "@now/node-server",
             "config": {
                 "includeFiles": [
-                    "models/**"
+                    "models/**",
+                    "../config/**"
                 ]
             }
         }
