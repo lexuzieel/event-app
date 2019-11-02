@@ -10,6 +10,10 @@
         "DATABASE_DIALECT": "@database_dialect",
         "DATABASE_HOST": "@database_host",
         "DATABASE_PORT": "@database_port",
+        "REDIS_HOST": "@redis_host",
+        "REDIS_PORT": "@redis_port",
+        "REDIS_PASSWORD": "@redis_password",
+        "REDIS_SESSION_DB": "@redis_session_db",
         "VKONTAKTE_APP_SECRET": "@vkontakte_app_secret",
         "KEY": "@key"
     },
