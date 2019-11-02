@@ -26,10 +26,11 @@ module.exports = function (app) {
                 }), 'value'),
             }
 
-            User.upsert(data).then(result => {
-                User.findOne({ profile_id: profile.id }).then(user => {
-                    done(null, user)
-                })
+            User.findOrCreate({
+                where: { profile_id: profile.id },
+                defaults: data
+            }).then(users => {
+                done(null, _.first(users))
             })
         }
     ))
