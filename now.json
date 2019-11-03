@@ -44,7 +44,7 @@
             ]
         },
         {
-            "src": "/api/events/.*",
+            "src": "/api/events(/.*|)",
             "dest": "/backend/index.js",
             "methods": [
                 "GET", "POST", "DELETE"
