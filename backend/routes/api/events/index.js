@@ -15,7 +15,7 @@ module.exports = function (app, router) {
                 }
             }
 
-            if (validator.isInt(req.query.type)) {
+            if (req.query.type && validator.isInt(req.query.type)) {
                 typeWheres.id = req.query.type
             }
 
