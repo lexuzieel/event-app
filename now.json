@@ -59,7 +59,7 @@
             ]
         },
         {
-            "src": "/auth/vkontakte(/callback|)",
+            "src": "/auth(/.*|)",
             "dest": "/backend/index.js",
             "methods": [
                 "GET"
