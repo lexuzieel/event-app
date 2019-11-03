@@ -15,7 +15,8 @@
     "db:seed": "sequelize db:seed --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --seed",
     "build": "vue-cli-service build frontend",
     "live-client": "vue serve frontend",
-    "live-server": "nodemon --exec babel-node backend",
+    "live-server": "nodemon -w backend --exec babel-node backend",
+    "live-both": "npm-run-all --parallel live-server live-client",
     "live": "nodemon --exec now dev"
   },
   "author": "a_nu team",
@@ -41,6 +42,7 @@
     "@babel/node": "^7.6.3",
     "@babel/preset-env": "^7.6.3",
     "nodemon": "^1.19.4",
-    "now": "^16.4.4"
+    "now": "^16.4.4",
+    "npm-run-all": "^4.1.5"
   }
 }
