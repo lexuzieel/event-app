@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const redis = require('redis')
 const express = require('express')
+const bodyParser = require('body-parser')
 const session = require("express-session")
 const app = express()
 const port = process.env.PORT || 3000
@@ -23,6 +24,7 @@ let client = redis.createClient({
     db: process.env.REDIS_SESSION_DB || 1,
 })
 
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(session({
     store: new RedisStore({ client }),
     resave: true,
