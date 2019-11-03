@@ -82,9 +82,9 @@ module.exports = {
                     allowNull: true,
                     type: Sequelize.STRING
                 },
-                participation_type: {
+                participating: {
                     allowNull: false,
-                    type: Sequelize.INTEGER
+                    type: Sequelize.ENUM(['yes','no','maybe'])
                 },
             }),
         ]);
