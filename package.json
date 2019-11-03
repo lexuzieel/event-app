@@ -12,6 +12,7 @@
     "migrate:rollback": "sequelize db:migrate:undo --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models",
     "migrate:rollback:to": "sequelize db:migrate:undo:all --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --to",
     "migrate:status": "sequelize db:migrate:status --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models",
+    "db:seed": "sequelize db:seed --config config/sequelize.js --migrations-path backend/database/migrations --seeders-path backend/database/seeders --models-path backend/models --seed",
     "build": "vue-cli-service build frontend",
     "live-client": "vue serve frontend",
     "live-server": "nodemon --exec babel-node backend",
