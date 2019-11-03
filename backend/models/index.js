@@ -14,6 +14,8 @@ if (config.use_env_variable) {
 
 const models = [
     require('./user')(sequelize, Sequelize),
+    require('./event')(sequelize, Sequelize),
+    require('./event_type')(sequelize, Sequelize),
 ];
 
 models.forEach(model => {

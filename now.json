@@ -44,6 +44,13 @@
             ]
         },
         {
+            "src": "/api/events/.*",
+            "dest": "/backend/index.js",
+            "methods": [
+                "GET", "POST", "DELETE"
+            ]
+        },
+        {
             "src": "/auth/vkontakte(/callback|)",
             "dest": "/backend/index.js",
             "methods": [
