@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const cors = require('cors')
 const redis = require('redis')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -31,6 +32,10 @@ app.use(session({
     secret: key,
     saveUninitialized: false
 }))
+
+if (process.env.NODE_ENV != 'production') {
+    app.use(cors())
+}
 
 require('./helpers')(app)
 
