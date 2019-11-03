@@ -1,10 +1,21 @@
 module.exports = {
     parserOptions: {
+        ecmaVersion: 2017,
         sourceType: 'module',
+        parser: 'babel-eslint'
     },
     rules: {
-        'no-console': 'off',
+        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-undef': 'off',
-        'import': 'off',
+        'import': 'off'
     },
+    root: true,
+    env: {
+        node: true
+    },
+    extends: [
+        'plugin:vue/recommended',
+        'eslint:recommended'
+    ],
 };
