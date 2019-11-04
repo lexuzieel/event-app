@@ -3,10 +3,6 @@
     "name": "event-app",
     "env": {
         "APP_URL": "@app_url",
-        "VUE_APP_FRONTEND_URL": "@vue_app_frontend_url",
-        "VUE_APP_BACKEND_URL": "@vue_app_backend_url",
-        "VUE_APP_YANDEX_API_KEY": "@vue_app_yandex_api_key",
-        "VUE_APP_GOOGLE_API_KEY": "@vue_app_google_api_key",
         "VKONTAKTE_APP_ID": "@vkontakte_app_id",
         "DATABASE_NAME": "@database_name",
         "DATABASE_USERNAME": "@database_username",
@@ -20,6 +16,14 @@
         "REDIS_SESSION_DB": "@redis_session_db",
         "VKONTAKTE_APP_SECRET": "@vkontakte_app_secret",
         "KEY": "@key"
+    },
+    "build": {
+        "env": {
+            "VUE_APP_FRONTEND_URL": "@vue_app_frontend_url",
+            "VUE_APP_BACKEND_URL": "@vue_app_backend_url",
+            "VUE_APP_YANDEX_API_KEY": "@vue_app_yandex_api_key",
+            "VUE_APP_GOOGLE_API_KEY": "@vue_app_google_api_key"
+        }
     },
     "builds": [
         {
