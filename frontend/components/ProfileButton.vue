@@ -7,33 +7,42 @@
         'is-loading': loading,
         'logged-in': loggedIn,
       }"
+      :style="style"
       @click="click"
     >
-      <template v-if="loggedIn">
-        <div
-          class="avatar"
-          :style="{
-            'background-image': `url(${user.avatarUrl})`
-          }"
-        />
-        <p class="name">
-          {{ user.name }}
-        </p>
-        <p class="logout">
-          Выйти
-        </p>
-      </template>
-      <template v-else>
-        Войти через VK
+      <template v-if="!loading">
+        <template v-if="loggedIn">
+          <div
+            class="avatar"
+            :style="{
+              'background-image': `url(${user.avatarUrl})`
+            }"
+          />
+          <p class="name">
+            {{ user.name }}
+          </p>
+          <p class="logout">
+            Выйти
+          </p>
+        </template>
+        <template v-else>
+          Войти через VK
+        </template>
       </template>
     </div>
   </transition>
 </template>
 
 <script>
+import * as Vibrant from "node-vibrant";
+
 export default {
   data() {
     return {
+      colors: {
+        background: [70, 128, 194],
+        text: [255, 255, 255]
+      },
       loading: false
     };
   },
@@ -44,8 +53,36 @@ export default {
     user() {
       return this.$store.state.user;
     },
+    style() {
+      return {
+        "background-color": `rgb(${this.colors.background[0]}, ${
+          this.colors.background[1]
+        }, ${this.colors.background[2]}) !important`,
+        "box-shadow": `0 4px 16px rgba(${this.colors.background[0]}, ${
+          this.colors.background[1]
+        }, ${this.colors.background[2]}, .75) !important`,
+        color: `rgb(${this.colors.text[0]}, ${this.colors.text[1]}, ${
+          this.colors.text[2]
+        }) !important`
+      };
+    },
     loggedIn() {
       return this.user != null;
+    }
+  },
+  watch: {
+    loggedIn: {
+      handler() {
+        if (this.loggedIn) {
+          Vibrant.from(this.user.avatarUrl).getPalette((err, palette) => {
+            this.colors.background = palette.DarkMuted.rgb;
+            this.colors.text = palette.LightMuted.rgb;
+          });
+        } else {
+          this.colors.background = [70, 128, 194];
+          this.colors.text = [255, 255, 255];
+        }
+      }
     }
   },
   methods: {
@@ -76,9 +113,16 @@ export default {
     transition: all .25s
     margin: auto
     pointer-events: all
-    &:hover
-        background-color: #4C87CA
-        box-shadow: 0 4px 16px rgba(70, 128, 194, .8)
+    &::before
+        content: ''
+        position: absolute
+        background: white
+        width: 100%
+        height: 100%
+        z-index: 2
+        opacity: 0
+    &:hover::before
+        opacity: .1
     &.is-loading::after
         height: 2.5em
         width: 2.5em
