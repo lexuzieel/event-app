@@ -3,6 +3,8 @@
     "name": "event-app",
     "env": {
         "APP_URL": "@app_url",
+        "VUE_APP_FRONTEND_URL": "@app_url",
+        "VUE_APP_BACKEND_URL": "@app_url",
         "VUE_APP_YANDEX_API_KEY": "@vue_app_yandex_api_key",
         "VUE_APP_GOOGLE_API_KEY": "@vue_app_google_api_key",
         "VKONTAKTE_APP_ID": "@vkontakte_app_id",
