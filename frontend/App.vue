@@ -97,6 +97,8 @@ export default {
         max-height: 400px
         background: linear-gradient(to bottom, white, transparent)
         pointer-events: none
+        +mobile
+            display: none
 
 .mobile-bottom-section
     text-align: center
