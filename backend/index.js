@@ -35,6 +35,13 @@ app.use(session({
 
 if (process.env.NODE_ENV != 'production') {
     app.use(cors())
+    app.use(function (req, res, next) {
+        if (process.env.VUE_APP_FRONTEND_URL) {
+            res.header("Access-Control-Allow-Credentials", "true")
+            res.header("Access-Control-Allow-Origin", process.env.VUE_APP_FRONTEND_URL)
+        }
+        next()
+    });
 }
 
 require('./helpers')(app)
