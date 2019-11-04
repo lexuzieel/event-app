@@ -1,7 +1,8 @@
 <template>
   <yandex-map
+    ref="map"
     :zoom="zoom"
-    :coords="location"
+    :coords="$store.state.location"
     :controls="controls"
     ymap-class="background-map"
     @map-was-initialized="initialized"
@@ -26,23 +27,29 @@ export default {
   data() {
     return {
       controls: [],
-      zoom: 15,
-      location: [0, 0],
-      markers: []
+      zoom: 15
     };
+  },
+  computed: {
+    markers() {
+      let markers = [];
+
+      this.$store.state.events.forEach(event => {
+        markers.push({
+          id: event.id,
+          coords: [event.latitude, event.longitude],
+          icon: this.getIcon(event.type.color),
+          hint: event.name
+        });
+      });
+
+      return markers;
+    }
   },
   methods: {
     initialized() {
       this.initializeLocation().then(location => {
-        this.location = [location.lat, location.lng];
-
-        this.markers.push({
-          id: this.markers.length + 1,
-          coords: this.location,
-          icon: this.getIcon("blue"),
-          hint: null
-        });
-
+        this.$store.state.location = [location.lat, location.lng];
         this.$emit("loaded");
       });
     },
@@ -55,7 +62,7 @@ export default {
       };
     },
     onMarkerClick(e) {
-      //
+      this.$store.state.location = e.get("coords");
     },
     cacheLocation(location) {
       localStorage.setItem("geolocation", JSON.stringify(location));

@@ -56,19 +56,26 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get(`${this.$store.state.backendUrl}/api/users/me`, {
-        withCredentials: true
-      })
-      .then(({ data }) => {
-        this.$store.commit("updateUser", data);
-      })
-      .catch(error => {
-        //
-      })
-      .finally(() => {
-        this.$store.commit("initialize");
-      });
+    Promise.all([
+      axios
+        .get(`${this.$store.state.backendUrl}/api/users/me`, {
+          withCredentials: true
+        })
+        .then(({ data }) => {
+          this.$store.state.user = data;
+        }),
+      axios
+        .get(`${this.$store.state.backendUrl}/api/events`, {
+          params: {
+            limit: 100
+          }
+        })
+        .then(({ data }) => {
+          this.$store.state.events = data;
+        })
+    ]).finally(() => {
+      this.$store.commit("initialize");
+    });
   },
   methods: {
     onMapLoad() {
