@@ -22,6 +22,15 @@ module.exports = function (app, router) {
                 typeWheres.id = req.query.type
             }
 
+            let limit = _.clamp(req.query.limit || 25, 1, 50)
+            let offset = 0
+
+            if (req.query.page &&
+                validator.isInt(req.query.page) &&
+                req.query.page > 0) {
+                offset = limit * req.query.page
+            }
+
             Event.findAll({
                 include: [{
                     as: 'type',
@@ -30,10 +39,11 @@ module.exports = function (app, router) {
                     where: typeWheres
                 }],
                 order: [
-                    ['created_at', 'DESC'],
+                    ['arranged_at', 'ASC'],
                 ],
                 where: wheres,
-                limit: _.clamp(req.query.limit || 25, 1, 50)
+                limit: limit,
+                offset: offset
             }).then(events => {
                 res.send(events)
             })
