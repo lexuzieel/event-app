@@ -8,5 +8,5 @@
         }
     ],
     "eslint.enable": true,
-    "vetur.validation.template": false
+    "vetur.validation.template": true
 }
