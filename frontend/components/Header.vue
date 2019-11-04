@@ -25,6 +25,8 @@ export default {
     text-align: center
     width: 100%
     pointer-events: none
+    & > *
+        pointer-events: initial
     .profile-button
         margin: 2.5em 0
         +mobile

@@ -125,7 +125,6 @@ export default {
     box-shadow: 0 4px 16px rgba(70, 128, 194, .75)
     transition: all .25s
     margin: auto
-    pointer-events: all
     &::before
         content: ''
         position: absolute
