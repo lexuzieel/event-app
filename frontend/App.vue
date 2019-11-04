@@ -6,9 +6,14 @@
         <Header/>
       </div>
     </div>
+    <div class="section mobile-bottom-section">
+      <div class="container">
+        <profile-button is-mobile/>
+      </div>
+    </div>
     <transition name="loading-overlay-transition">
       <div
-        v-if="!loaded || !splashFinished"
+        v-if="false"
         class="loading-overlay"
       >
         <img
@@ -27,11 +32,13 @@
 require("./assets/sass/app.sass");
 
 import Header from "./components/Header.vue";
+import ProfileButton from "./components/ProfileButton.vue";
 import Map from "./components/Map.vue";
 
 export default {
   components: {
     Header,
+    ProfileButton,
     Map
   },
   data() {
@@ -75,7 +82,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#app > .section
+#app > .section:first-of-type
     padding-top: 1.5rem
     &::before
         content: ''
@@ -88,6 +95,14 @@ export default {
         max-height: 400px
         background: linear-gradient(to bottom, white, transparent)
         pointer-events: none
+
+.mobile-bottom-section
+    text-align: center
+    position: absolute
+    margin: auto
+    bottom: 0
+    right: 0
+    left: 0
 
 .loading-overlay
     position: fixed

@@ -18,10 +18,18 @@
               'background-image': `url(${user.avatarUrl})`
             }"
           />
-          <p class="name">
+          <p
+            v-if="!isMobile"
+            class="name"
+          >
             {{ user.name }}
           </p>
-          <p class="logout">
+          <p
+            class="logout"
+            :class="{
+              'always-shown':isMobile
+            }"
+          >
             Выйти
           </p>
         </template>
@@ -37,6 +45,11 @@
 import * as Vibrant from "node-vibrant";
 
 export default {
+  props: {
+    isMobile: {
+      type: Boolean
+    }
+  },
   data() {
     return {
       colors: {
@@ -152,7 +165,7 @@ export default {
             line-height: 1.1em
             padding: 0 10px
             transition: opacity .25s
-        .logout
+        .logout:not(.always-shown)
             opacity: 0
         &:hover
             .name
