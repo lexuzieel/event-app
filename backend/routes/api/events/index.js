@@ -5,6 +5,9 @@ const { Event, EventType } = require('../../../models')
 
 module.exports = function (app, router) {
     router.prefix('/events', (router) => {
+
+        require('./types')(app, router)
+
         router.get('/', function (req, res) {
             let wheres = {}
             let typeWheres = {}
