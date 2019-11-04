@@ -3,7 +3,7 @@ const fs = require('fs')
 const crypto = require('crypto')
 
 if (!fs.existsSync('.env')) {
-    fs.copyFileSync('.env.example', '.env')
+    fs.copyFileSync('.env-example', '.env')
 }
 
 if (!process.env.KEY) {
