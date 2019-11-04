@@ -3,11 +3,11 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         const types = [
-            { name: "Искусство" },
-            { name: "Культура" },
-            { name: "Встреча" },
-            { name: "Спорт" },
-            { name: "Игры" },
+            { name: "Искусство", color: "green" },
+            { name: "Культура", color: "purple" },
+            { name: "Встреча", color: "blue" },
+            { name: "Спорт", color: "orange" },
+            { name: "Игры", color: "cyan" },
         ];
 
         types.forEach(type => {

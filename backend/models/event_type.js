@@ -2,6 +2,9 @@
 
 module.exports = (sequelize, DataTypes) => {
     const event_type = sequelize.define('EventType', {
+        color: {
+            type: DataTypes.STRING
+        },
         name: {
             type: DataTypes.STRING
         },
