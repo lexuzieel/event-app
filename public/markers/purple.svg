@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="72.40926021895689" width="55.40926021895689">
+  <defs>
+    <path id="path-1" opacity="1" fill-rule="evenodd" d="M24.5,15.999999999999996 L18.999999999999993,63 L48.99999999999999,28.499999999999996 L24.5,15.999999999999996Z"/>
+    <radialGradient id="radialGradient-2" cx="0.1" cy="0.98" r="0.9152595260361949">
+      <stop offset="0" stop-color="rgb(0,0,0)" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="rgb(0,0,0)" stop-opacity="0"/>
+    </radialGradient>
+    <ellipse id="ellipse-3" opacity="1" rx="16" ry="16" cx="19" cy="19"/>
+    <mask id="mask-4" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-5.409260218956888" y="0">
+      <rect opacity="1" x="-5.409260218956888" y="0" width="55.40926021895689" height="72.40926021895689" fill="white"/>
+      <use xlink:href="#ellipse-3" fill="black"/>
+    </mask>
+    <path id="path-5" opacity="1" fill-rule="evenodd" d="M3.9999999999999982,24.499999999999996 L18.999999999999996,62.99999999999999 L34,24.499999999999993 L3.9999999999999982,24.499999999999996Z"/>
+    <mask id="mask-6" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="-5.409260218956888" y="0">
+      <rect opacity="1" x="-5.409260218956888" y="0" width="55.40926021895689" height="72.40926021895689" fill="white"/>
+      <use xlink:href="#path-5" fill="black"/>
+    </mask>
+    <ellipse id="ellipse-7" opacity="1" rx="16" ry="16" cx="19" cy="19"/>
+  </defs>
+  <g transform="translate(5.409260218956888, 0)" opacity="1">
+    <g opacity="1">
+      <use xlink:href="#path-1" fill="url(#radialGradient-2)" fill-opacity="1"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#ellipse-3" fill="rgb(168,100,255)" fill-opacity="1"/>
+      <use xlink:href="#ellipse-3" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" mask="url(#mask-4)"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#path-5" fill="rgb(144,86,219)" fill-opacity="1"/>
+      <use xlink:href="#path-5" fill-opacity="0" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter" mask="url(#mask-6)"/>
+    </g>
+    <g opacity="1">
+      <use xlink:href="#ellipse-7" fill="rgb(168,100,255)" fill-opacity="1"/>
+    </g>
+  </g>
+</svg>

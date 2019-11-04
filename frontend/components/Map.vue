@@ -57,7 +57,7 @@ export default {
     getIcon(color) {
       return {
         layout: "default#image",
-        imageHref: `/markers/${color}.png`,
+        imageHref: `/markers/${color}.svg`,
         imageSize: [55, 72], // icon size в px
         imageOffset: [-24, -64] // offset в px
       };
