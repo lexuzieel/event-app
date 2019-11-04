@@ -47,7 +47,7 @@
         {
             "src": "/api/users/.*",
             "headers": {
-                "cache-control": "s-maxage=1, stale-while-revalidate"
+                "cache-control": "no-cache"
             },
             "dest": "/backend/index.js",
             "methods": [
