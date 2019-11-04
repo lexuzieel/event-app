@@ -3,6 +3,7 @@
     "name": "event-app",
     "env": {
         "APP_URL": "@app_url",
+        "VUE_APP_YANDEX_API_KEY": "@vue_app_yandex_api_key",
         "VKONTAKTE_APP_ID": "@vkontakte_app_id",
         "DATABASE_NAME": "@database_name",
         "DATABASE_USERNAME": "@database_username",
