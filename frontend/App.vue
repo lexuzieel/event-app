@@ -82,6 +82,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import "bulma/sass/utilities/_all.sass"
+
 #app > .section:first-of-type
     padding-top: 1.5rem
     &::before
@@ -103,6 +105,9 @@ export default {
     bottom: 0
     right: 0
     left: 0
+    display: none
+    +mobile
+        display: initial
 
 .loading-overlay
     position: fixed
