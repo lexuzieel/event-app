@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 55.4 72.4" style="enable-background:new 0 0 55.4 72.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#path-1_1_);}
+	.st1{fill:#A864FF;}
+	.st2{fill-opacity:0;stroke:#FFFFFF;stroke-width:4;}
+	.st3{fill:#DB5656;}
+	.st4{fill:#FF6464;}
+</style>
+<g>
+	
+		<radialGradient id="path-1_1_" cx="-1136.7001" cy="595.9542" r="0.9153" gradientTransform="matrix(30 0 0 -47 34128.4102 28071.9063)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.5"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
+	</radialGradient>
+	<path id="path-1" class="st0" d="M29.9,16l-5.5,47l30-34.5L29.9,16z"/>
+</g>
+<g>
+	<ellipse id="ellipse-3_1_" class="st1" cx="24.4" cy="19" rx="16" ry="16"/>
+</g>
+<g>
+	<ellipse id="ellipse-3_2_" class="st2" cx="24.4" cy="19" rx="16" ry="16"/>
+</g>
+<g>
+	<path id="path-5_2_" class="st2" d="M9.4,24.5l15,38.5l15-38.5H9.4z"/>
+</g>
+<g>
+	<path id="path-5_1_" class="st3" d="M9.4,24.5l15,38.5l15-38.5H9.4z"/>
+</g>
+<g>
+	<ellipse id="ellipse-7" class="st4" cx="24.4" cy="19" rx="16" ry="16"/>
+</g>
+</svg>

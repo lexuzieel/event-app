@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     randomSplashLogo() {
-      const colors = ["orange", "green", "blue", "purple"];
+      const colors = ["orange", "green", "blue", "purple", "red"];
       const color = colors[Math.floor(Math.random() * colors.length)];
 
       return `/markers/${color}.svg`;
@@ -64,7 +64,7 @@ export default {
         this.$store.commit("updateUser", data);
       })
       .catch(error => {
-          //
+        //
       })
       .finally(() => {
         this.$store.commit("initialize");
