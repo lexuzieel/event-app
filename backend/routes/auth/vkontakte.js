@@ -46,9 +46,7 @@ module.exports = function (app) {
         router.get('/vkontakte/callback',
             passport.authenticate('vkontakte'),
             function (req, res) {
-                res.json({
-                    message: 'success'
-                })
+                res.redirect(`${process.env.VUE_APP_FRONTEND_URL || ''}/`)
             });
     })
 }
