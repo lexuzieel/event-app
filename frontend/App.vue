@@ -56,6 +56,9 @@ export default {
       .then(({ data }) => {
         this.$store.commit("updateUser", data);
       })
+      .catch(error => {
+          //
+      })
       .finally(() => {
         this.$store.commit("initialize");
       });

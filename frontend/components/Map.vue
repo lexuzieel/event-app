@@ -106,6 +106,9 @@ export default {
             let location = data.location;
             this.cacheLocation(location);
             return location;
+          })
+          .catch(error => {
+            return [0, 0];
           });
       }
     }
