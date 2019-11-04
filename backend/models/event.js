@@ -11,23 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.STRING
         },
-        location: {
-            get() {
-                return JSON.parse(this.getDataValue('location'))
-            },
-            validate: {
-                location: value => {
-                    if (validator.isJSON(value)) {
-                        let location = JSON.parse(value)
-                        if (!location.lon || !location.lat) {
-                            throw new Error('Location must be have both "long" and "lat" properties')
-                        }
-                    } else {
-                        throw new Error('Location must be JSON')
-                    }
-                },
-            },
-            type: DataTypes.STRING
+        latitude: {
+            type: DataTypes.FLOAT
+        },
+        longitude: {
+            type: DataTypes.FLOAT
         },
         arrangedAt: {
             type: DataTypes.DATE
