@@ -15,6 +15,8 @@ Vue.use(YandexMaps, {
     version: '2.1'
 })
 
+console.log(process.env)
+
 new Vue({
     render: h => h(App),
     store,
