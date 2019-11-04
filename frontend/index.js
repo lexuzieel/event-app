@@ -8,6 +8,14 @@ window.axios = require('axios')
 
 Vue.config.productionTip = false
 
+const moment = require('moment')
+
+moment.locale('ru')
+
+Vue.use(require('vue-moment'), {
+    moment
+})
+
 Vue.use(YandexMaps, {
     apiKey: process.env.VUE_APP_YANDEX_API_KEY,
     lang: 'ru_RU',
