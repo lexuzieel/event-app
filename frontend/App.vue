@@ -144,7 +144,7 @@ export default {
 .loading-overlay-logo
     position: absolute
     margin: auto
-    left: 0
+    left: 28px
     right: 0
     bottom: 0
     top: 0
