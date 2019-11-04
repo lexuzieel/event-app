@@ -148,6 +148,7 @@ export default {
     right: 0
     bottom: 0
     top: 0
+    width: 80px
     transform: scale(3,3) translateY(0)
     &.animate
         animation-duration: 1.2s
