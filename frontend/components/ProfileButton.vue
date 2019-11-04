@@ -149,10 +149,11 @@ export default {
         overflow: hidden
         padding: 0
         .avatar
+            border-radius: 16px 0 0 16px
             position: absolute
             height: 100%
             width: 36%
-            left: -2px
+            left: -1px
             background-size: contain
             background-repeat: no-repeat
             background-position: center
