@@ -1,11 +1,25 @@
 <template>
   <div id="app">
-    <Map/>
+    <Map @loaded="onMapLoad"/>
     <div class="section">
       <div class="container">
         <Header/>
       </div>
     </div>
+    <transition name="loading-overlay-transition">
+      <div
+        v-if="!loaded || !splashFinished"
+        class="loading-overlay"
+      >
+        <img
+          class="loading-overlay-logo"
+          :class="{
+            animate:loaded
+          }"
+          :src="randomSplashLogo"
+        >
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -20,6 +34,20 @@ export default {
     Header,
     Map
   },
+  data() {
+    return {
+      loaded: false,
+      splashFinished: false
+    };
+  },
+  computed: {
+    randomSplashLogo() {
+      const colors = ["orange", "green", "blue", "purple"];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+
+      return `/markers/${color}.svg`;
+    }
+  },
   mounted() {
     axios
       .get(`${this.$store.state.backendUrl}/api/users/me`, {
@@ -31,11 +59,19 @@ export default {
       .finally(() => {
         this.$store.commit("initialize");
       });
+  },
+  methods: {
+    onMapLoad() {
+      this.loaded = true;
+      setTimeout(() => {
+        this.splashFinished = true;
+      }, 500);
+    }
   }
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 #app > .section
     padding-top: 1.5rem
     &::before
@@ -49,4 +85,49 @@ export default {
         max-height: 400px
         background: linear-gradient(to bottom, white, transparent)
         pointer-events: none
+
+.loading-overlay
+    position: fixed
+    background: #fff
+    top: 0
+    left: 0
+    width:100%
+    height:100%
+    z-index: 9999
+.loading-overlay-transition-enter-active,
+.loading-overlay-transition-leave-active
+    transition: opacity .75s ease-in
+.loading-overlay-transition-enter,
+.loading-overlay-transition-leave-to
+    opacity: 0
+
+// https://css-tricks.com/making-css-animations-feel-natural/
+@keyframes logo-animation
+    0%
+        transform: scale(3,3) translateY(0)
+    10%
+        transform: scale(3.1,2.9) translateY(0)
+    30%
+        transform: scale(2.9,3.1) translateY(-35px)
+    50%
+        transform: scale(3.05,2.95) translateY(0)
+    40%
+        transform: scale(2.95,2.5) translateY(15px)
+    80%
+        transform: scale(3,3) translateY(0)
+    100%
+        transform: scale(3,3) translateY(0)
+
+.loading-overlay-logo
+    position: absolute
+    margin: auto
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    transform: scale(3,3) translateY(0)
+    &.animate
+        animation-duration: 1.2s
+        animation-name: logo-animation
+        animation-fill-mode: forwards
 </style>

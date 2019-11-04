@@ -1,39 +1,30 @@
 <template>
-  <div>
-    <transition name="map-overlay-transition">
-      <div
-        v-if="!loaded"
-        class="background-map-overlay"
-      />
-    </transition>
-    <yandex-map
-      :zoom="zoom"
-      :coords="location"
-      :controls="controls"
-      ymap-class="background-map"
-      @map-was-initialized="initialized"
-    >
-      <ymap-marker
-        v-for="marker in markers"
-        :key="marker.id"
-        cluster-name="default-cluster"
-        :coords="marker.coords"
-        :marker-id="marker.id"
-        :hint-content="marker.hint"
-        :icon="marker.icon"
-        :callbacks="{
-          click:onMarkerClick
-        }"
-      />
-    </yandex-map>
-  </div>
+  <yandex-map
+    :zoom="zoom"
+    :coords="location"
+    :controls="controls"
+    ymap-class="background-map"
+    @map-was-initialized="initialized"
+  >
+    <ymap-marker
+      v-for="marker in markers"
+      :key="marker.id"
+      cluster-name="default-cluster"
+      :coords="marker.coords"
+      :marker-id="marker.id"
+      :hint-content="marker.hint"
+      :icon="marker.icon"
+      :callbacks="{
+        click:onMarkerClick
+      }"
+    />
+  </yandex-map>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      loaded: false,
       controls: [],
       zoom: 15,
       location: [0, 0],
@@ -44,7 +35,6 @@ export default {
     initialized() {
       this.initializeLocation().then(location => {
         this.location = [location.lat, location.lng];
-        this.loaded = true;
 
         this.markers.push({
           id: this.markers.length + 1,
@@ -52,6 +42,8 @@ export default {
           icon: this.getIcon("blue"),
           hint: null
         });
+
+        this.$emit("loaded");
       });
     },
     getIcon(color) {
@@ -126,14 +118,4 @@ export default {
     position: absolute
     width: 100%
     height: 100%
-.background-map-overlay
-    position: absolute
-    background: #fff
-    width:100%
-    height:100%
-    z-index: 1
-.map-overlay-transition-leave-active
-    transition: opacity 1.25s ease-in
-.map-overlay-transition-leave-to
-    opacity: 0
 </style>
