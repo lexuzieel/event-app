@@ -62,8 +62,11 @@ export default {
     },
     initializeLocation() {
       return new Promise(resolve => {
-        // Check wether geolocation exists in the browser
-        if ("geolocation" in navigator) {
+        // Check if geolocation has been previously cached
+        if (localStorage && localStorage.getItem("geolocation")) {
+          resolve(JSON.parse(localStorage.getItem("geolocation")));
+          // Check whether geolocation exists in the browser
+        } else if ("geolocation" in navigator) {
           navigator.geolocation.getCurrentPosition(
             position => {
               let location = {
@@ -88,29 +91,20 @@ export default {
       });
     },
     getFallbackLocation() {
-      // Check if geolocation has been previously cached
-      if (localStorage && localStorage.getItem("geolocation")) {
-        return new Promise(resolve => {
-          resolve(JSON.parse(localStorage.getItem("geolocation")));
+      return axios
+        .post("https://www.googleapis.com/geolocation/v1/geolocate", null, {
+          params: {
+            key: process.env.VUE_APP_GOOGLE_API_KEY
+          }
+        })
+        .then(({ data }) => {
+          let location = data.location;
+          this.cacheLocation(location);
+          return location;
+        })
+        .catch(error => {
+          return [0, 0]; // TODO: Change to some city?
         });
-        // return JSON.parse(localStorage.getItem("geolocation"));
-      } else {
-        // Otherwise fallback to google geolocation service
-        return axios
-          .post("https://www.googleapis.com/geolocation/v1/geolocate", null, {
-            params: {
-              key: process.env.VUE_APP_GOOGLE_API_KEY
-            }
-          })
-          .then(({ data }) => {
-            let location = data.location;
-            this.cacheLocation(location);
-            return location;
-          })
-          .catch(error => {
-            return [0, 0];
-          });
-      }
     }
   }
 };
