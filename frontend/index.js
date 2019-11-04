@@ -3,6 +3,7 @@ import App from './App.vue'
 import store from './store'
 import YandexMaps from 'vue-yandex-maps'
 
+window._ = require('lodash')
 window.axios = require('axios')
 
 Vue.config.productionTip = false
