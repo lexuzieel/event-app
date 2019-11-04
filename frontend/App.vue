@@ -13,7 +13,7 @@
     </div>
     <transition name="loading-overlay-transition">
       <div
-        v-if="false"
+        v-if="!loaded || !splashFinished"
         class="loading-overlay"
       >
         <img
