@@ -108,6 +108,9 @@ export default {
     right: 0
     left: 0
     display: none
+    pointer-events: none
+    & > *
+        pointer-events: initial
     +mobile
         display: initial
 
