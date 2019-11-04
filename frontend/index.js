@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import store from './store'
 import YandexMaps from 'vue-yandex-maps'
 
 window.axios = require('axios')
@@ -15,4 +16,5 @@ Vue.use(YandexMaps, {
 
 new Vue({
     render: h => h(App),
+    store,
 }).$mount('#app')
