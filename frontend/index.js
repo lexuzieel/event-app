@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import YandexMaps from 'vue-yandex-maps'
 
+window.axios = require('axios')
+
 Vue.config.productionTip = false
 
 Vue.use(YandexMaps, {
