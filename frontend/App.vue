@@ -55,6 +55,9 @@ export default {
       return `/markers/${color}.svg`;
     }
   },
+  created() {
+    this.$ga.page("/");
+  },
   mounted() {
     Promise.all([
       axios
